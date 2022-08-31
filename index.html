@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolios</title>
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <!--    Scrollbar   -->
+    <div id="progressBar"></div>
+    <div id="scrollPath"></div>
+
+    <!--    HEADER    -->
+    <header class="header" id="header">
+        <nav class="nav container" id="nav1">
+            <a href="#" class="nav__logo">Federico</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <ion-icon name="home"></ion-icon>
+                            <p>Home</p>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <ion-icon name="person"></ion-icon>
+                            <p>About me</p>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <ion-icon name="library"></ion-icon>
+                            <p>Skills</p>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <ion-icon name="folder-open"></ion-icon>
+                            <p>Portfolio</p>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link">
+                            <ion-icon name="send"></ion-icon>
+                            <p>Contact me</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--    Close Button    -->
+                <div class="nav__close" id="nav-close">
+                    <ion-icon name="close"></ion-icon>
+                </div>
+            </div>
+
+            <!--    Toggle Button    -->
+            <div class="nav__toggle" id="nav-toggle">
+                <ion-icon name="menu"></ion-icon>
+            </div>
+        </nav>
+    </header>
+
+    <!-- NAV -->
+    <!--<nav>
+        <ul id="primary-navigation" class="primary-navigation flex">
+            <li class="active">
+                <a href="#" target="_blank">
+                    Portafolio
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" target="_blank">
+                    Linkedin
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" target="_blank">
+                    Instagram
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" target="_blank">
+                    Sobre mí
+                </a>
+            </li>
+        </ul>
+    </nav> -->
+
+    <!--  MAIN CONTENT  -->
+    <main class="main">
+        <!--  HOME  -->
+        <section class="home" id="home">
+
+            <div class="home__container container">
+                <div class="home__info">
+                    <h1 class="home__title">Hola, soy <span>Federico</span></h1>
+                    <h2 class="home__subtitle">Full Stack Developer</h2>
+                    <p class="home__description">Estudiante de Ciencias de la Computación, tester y desarrollador Full Stack</p>
+                    <a href="contact" class="button button--flex">
+                        Contact me<ion-icon name="send"></ion-icon>
+                    </a>
+                </div>
+            
+
+                <div class="home__scroll">
+                    <a href="about" class="home_scroll-button button--flex">
+                        <ion-icon name="caret-down"></ion-icon>
+                        <span class="home_scroll-name">Scroll down</span>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+        <div class="home_container container grid"></div>
+
+        <!--  ABOUT ME  -->
+        <section class="about section" id="about">
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+
+    <!--    SCRIPT    -->
+    <!-- Scroll Reveal -->
+    <script src="Assets/scrollreveal.min.js"></script>
+    <!-- Main -->
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

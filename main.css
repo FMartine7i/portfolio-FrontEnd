@@ -1,0 +1,370 @@
+/* ESTILO DE FUENTE */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100;300;400&display=swap');
+
+/* VARIABLES */
+:root{
+    /* Cambiar color favorito*/
+    --hue-color: 290; /* Púrpura: 290, turquesa: 169, Azul: 210*/
+
+    --first-color: hsl(var(--hue-color), 71%, 55%);
+    --first-color-second: hsl(var(--hue-color), 71%, 55%);
+    --first-color-alt: hsl(var(--hue-color), 53%, 50%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color-alt: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 60%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(290, 60%, 99%);
+
+    /*  FUENTE  */
+    --body-font: 'Poppins', sans-serif;
+
+    --fuente-grande: 2rem;
+    --fuente-h1: 1.5rem;
+    --fuente-h2: 1.25rem;
+    --fuente-h3: 1.125rem; 
+    --fuente-normal: .940rem;
+    --fuente-chica: .810rem;
+    --fuente-chica-2: .75rem;
+
+    /* GROSOR */
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    --background-color: rgb(44, 44, 44);
+}
+
+/*  Font size for large Devices */
+@media screen and (min-width: 968px){
+    :root{
+        --fuente-grande: 3rem;
+        --fuente-h1: 2.25rem;
+        --fuente-h2: 1.5rem;
+        --fuente-h3: 1.25rem; 
+        --fuente-normal: .1rem;
+        --fuente-chica: .875rem;
+        --fuente-chica-2: .810rem;
+    }
+}
+
+/*  BASE   */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--background-color);
+    font-family: var(--body-font);
+    margin: 0;
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4{
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+/*  BUTTON DARK/LIGHT MODE*/
+
+
+/*  REUSABLE CSS CLASSES  */
+.container {
+    max-width: 1024px;
+    margin-inline: 1.5rem;
+  }
+  
+.main {
+    overflow: hidden;   /* Para animaciones */
+  }
+  
+.section {
+    padding: 6.5rem 0 1rem;
+  }
+
+.section__title {
+    position: relative;
+    font-size: var(--h3-font-size);
+    margin-bottom: var(--mb-3);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+.section__title::before {
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 67px;
+    height: 1px;
+    background-color: var(--first-color);
+  }
+
+
+/*  HEADER  */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: transparent;
+    transition: background .3s;
+  }
+
+/*  NAV   */
+.nav{
+    position: relative;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: var(--font-semi-bold);
+    text-transform: uppercase;
+}
+
+.nav__logo,
+.nav__toggle,
+.nav__link,
+.nav__close{
+    color:var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__toggle{
+    display: inline-flex;
+    font-size: 1.25rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.nav__logo:hover{
+    color:var(--first-color)
+}
+
+.nav__toggle:hover{
+    color:var(--first-color);
+}
+
+@media screen and (max-width: 767px){
+    .nav__menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: -100%;
+        background-color: rgba(44, 44, 44, 0.3);
+        width: 100%;
+        height: 60%;
+        padding: 4rem 0 3.5rem;
+        box-shadow: 0 3px 8px hsla(203, 70%, 4%, .2);
+        backdrop-filter: blur(20px);
+        border-bottom-left-radius: 50%;
+        transition: top .4s;
+        overflow: hidden;
+        z-index: 100;
+    }
+}
+
+.nav__list{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    row-gap: 2rem;
+}
+
+header nav ul li a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+header nav div ul li a ion-icon{
+    margin-right: 0.5rem;
+}
+
+.nav__link{
+    font-weight: var(--font-semi-bold);
+    transition: .3s;
+}
+
+.nav__link:hover{
+    color: var(--first-color);
+}
+
+.nav__close{
+    font-size: 1.5rem;
+    position: absolute;
+    top: .1rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+/* Show menu */
+.show-menu {
+    top: 0;
+  }
+
+/*  active link   */
+.active-link{
+    background: linear-gradient(90deg, var(--first-color) 0%, var(--first-color-second), 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/*    HOME    */
+.home{
+    margin-top: 2rem;
+    position: relative;
+}
+
+.home__container{
+    position: relative;
+    padding: 7rem 0 2rem;
+}
+
+.home__title{
+    font-size: 3rem;
+    margin-bottom: .75rem;
+}
+
+.home__title span{
+    background: linear-gradient(90deg,
+        rgba(174, 20, 235, 0.863) 0%,
+        rgba(37, 143, 175, 0.808) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;      
+}
+
+.home__subtitle{
+    display: flex;
+    font-size: 2rem;
+    justify-content: center;
+    /* padding: top right bottom left*/
+    padding: 1rem 0 2rem 2rem;
+}
+
+.home__description{
+    font-size: 1.5rem;
+}
+
+.button,
+.home__scroll a{
+    display: flex;
+    justify-content: flex-end;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/*   Change background header   */
+.header-bg{
+
+}
+
+/* -------- BREAKPOINTS ---------*/
+
+/*  For small Devices  */
+@media screen and (max-width: 340px){
+    .container{
+        margin-inline: 1rem;
+    }
+}
+
+/*  For medium Devices  */
+@media screen and (min-width: 768px) {
+    header nav ul li a{
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav{
+        height: calc(3rem + 1.5rem)
+    }
+
+    .nav__toggle,
+    .nav__close{
+        display: none;
+    }
+
+    .nav__list{
+        flex-direction: row;
+        column-gap: 4rem;
+    }
+}
+
+/*    For large Devices   */
+@media screen and (min-width:1024px){
+    .home__title{
+        margin-bottom: 1rem;
+    }
+    .home__desciption{
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (min-width: 1048px){
+    .container{
+        margin-inline: auto;
+    }
+}
+
+/*  SCROLLBAR   */
+::-webkit-scrollbar{
+    width: 0;
+}
+
+#scrollPath{
+    position:fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255,255,255,0.05)
+}
+
+#progressBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to top, rgb(174, 20, 235), rgb(37, 143, 175));
+}
+
+#progressBar:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(187, 15, 255), rgb(44, 190, 235));
+    filter: blur(30px);
+}
+
+
