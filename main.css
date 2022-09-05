@@ -53,6 +53,8 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    outline: 0;
+    border: 0;
 }
 
 html{
@@ -66,9 +68,8 @@ body{
     color: var(--text-color);
 }
 
-h1, h2, h3, h4{
-    color: var(--title-color);
-    font-weight: var(--font-semi-bold);
+h1, h2, h3, h4, #paragraph{
+    color: #fff;
 }
 
 ul{
@@ -126,7 +127,7 @@ img{
 /*  HEADER  */
 
 .header {
-    width: 100%;
+    width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
@@ -142,8 +143,11 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: var(--font-semi-bold);
     text-transform: uppercase;
+}
+
+.nav__logo{
+    font-weight: var(--font-semi-bold);
 }
 
 .nav__logo,
@@ -151,7 +155,7 @@ img{
 .nav__link,
 .nav__close{
     color:var(--title-color);
-    font-weight: var(--font-medium);
+    
 }
 
 .nav__toggle{
@@ -171,7 +175,7 @@ img{
 
 @media screen and (max-width: 767px){
     .nav__menu{
-        position: fixed;
+        position:fixed;
         top: -100%;
         left: 0;
         right: -100%;
@@ -203,25 +207,21 @@ header nav ul li a{
 }
 
 
-header nav div ul li a ion-icon{
+header nav div ul li a i{
     margin-right: 0.5rem;
 }
 
 .nav__link{
-    font-weight: var(--font-semi-bold);
     transition: .3s;
-}
-
-.nav__link:hover{
-    color: var(--first-color);
 }
 
 .nav__close{
     font-size: 1.5rem;
     position: absolute;
-    top: .1rem;
-    right: 1.5rem;
+    top: .55rem;
+    right: 1.4rem;
     cursor: pointer;
+    z-index: 100;
 }
 
 /* Show menu */
@@ -230,9 +230,10 @@ header nav div ul li a ion-icon{
   }
 
 /*  active link   */
-.active-link{
-    background: linear-gradient(90deg, var(--first-color) 0%, var(--first-color-second), 100%);
+a:hover{
+    background: linear-gradient(90deg, rgb(187, 15, 255), rgb(44, 190, 235));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
 }
 
@@ -248,17 +249,41 @@ header nav div ul li a ion-icon{
 }
 
 .home__title{
-    font-size: 3rem;
+    position: relative;
+    margin-left: 7rem;
+    font-size: 2.5rem;
     margin-bottom: .75rem;
+    z-index: -1;
 }
 
-.home__title span{
+.home__title .text{
+    position: relative;
+
+}
+
+.text.second-text{
     background: linear-gradient(90deg,
-        rgba(174, 20, 235, 0.863) 0%,
-        rgba(37, 143, 175, 0.808) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;      
+        rgba(174, 20, 235, 0.863),
+        rgba(37, 143, 175, 0.808)50%,
+        rgba(37, 143, 175, 0.808) 50%,
+        rgba(174, 20, 235, 0.863));
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate 1.5s linear infinite;
+    font-size: 3.5rem;
+    margin-left: 4rem;      
+}
+
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+
+    100%{
+        background-position: 200%;
+    }
 }
 
 .home__subtitle{
@@ -268,6 +293,7 @@ header nav div ul li a ion-icon{
     /* padding: top right bottom left*/
     padding: 1rem 0 2rem 2rem;
 }
+
 
 .home__description{
     font-size: 1.5rem;
@@ -279,6 +305,88 @@ header nav div ul li a ion-icon{
     justify-content: flex-end;
     color: rgba(255, 255, 255, 0.5);
 }
+
+/*  Efecto typing   */
+.text.first-text:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--background-color);
+    border-left: 2px solid rgb(105, 19, 145);
+    animation: typing 4s steps(12) infinite;
+}
+
+@keyframes typing{
+    40%, 60%{
+        left: 100%;
+    }
+
+    100%{
+        left: 0%;
+    }
+}
+
+/*   Home Social Icons   */
+
+.grid{
+    outline: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0;
+    background: transparent;
+}
+
+.social-buttons {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-buttons button {
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    color: #fff;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all .25s ease;
+}
+
+.social-buttons button:active {
+    transform: scale(.85);
+}
+
+.social-buttons button .bg {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #39373a;
+    border-radius: 50px;
+    pointer-events: none;
+    box-shadow: 0 0 30px #18151d58;
+}
+
+.social-buttons button:active .bg{
+    background:rgba(174, 20, 235, 0.541);
+    box-shadow: 0 0 30px rgb(162, 13, 231);
+}
+
+.social-buttons button i {
+    position: relative;
+    z-index: 10;
+    font-size: 30px;
+    pointer-events: none;
+}
+
 
 /*   Change background header   */
 .header-bg{
@@ -295,7 +403,7 @@ header nav div ul li a ion-icon{
 }
 
 /*  For medium Devices  */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     header nav ul li a{
         position: relative;
         display: flex;
@@ -313,7 +421,44 @@ header nav div ul li a ion-icon{
 
     .nav__list{
         flex-direction: row;
-        column-gap: 4rem;
+        column-gap: 2.2rem;
+    }
+}
+
+/*    For medium medium Devices    */
+@media screen and (min-width: 820px){
+    .nav.container{
+        display: flex;
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .nav.container{
+        font-size: 1.05rem;
+        margin-inline: .5rem;
+    }
+}
+
+/* For super small devices */
+@media screen and (max-width: 375px){
+    .nav.container{
+        font-size: .8rem;
+    }
+}
+
+@media screen and (min-width: 280px){
+    .nav.container{
+        margin-inline: .5rem;
+    }
+
+    .first-text{
+        font-size: 1.5rem;
+        justify-content: left;
+    }
+
+    .text.second-text{
+        font-size: 2.3rem;
     }
 }
 
@@ -322,7 +467,7 @@ header nav div ul li a ion-icon{
     .home__title{
         margin-bottom: 1rem;
     }
-    .home__desciption{
+    .home__description{
         margin-bottom: 3rem;
     }
 }
@@ -330,6 +475,25 @@ header nav div ul li a ion-icon{
 @media screen and (min-width: 1048px){
     .container{
         margin-inline: auto;
+    }
+}
+
+/*    Super large   */
+@media screen and (min-width: 1080px){
+    .nav.container{
+        margin-inline: auto;
+        font-size: 1.1rem;
+    }
+    .nav__list{
+        flex-direction: row;
+        column-gap: 2.5rem;
+    }
+
+    .text.first-text{
+        font-size: 3rem;
+    }
+    .text.second-text{
+        font-size: 3.9rem;
     }
 }
 
@@ -354,6 +518,7 @@ header nav div ul li a ion-icon{
     width: 10px;
     height: 100%;
     background: linear-gradient(to top, rgb(174, 20, 235), rgb(37, 143, 175));
+    z-index: 100;
 }
 
 #progressBar:before{
@@ -364,6 +529,26 @@ header nav div ul li a ion-icon{
     width: 100%;
     height: 100%;
     background: linear-gradient(to top, rgb(187, 15, 255), rgb(44, 190, 235));
+    filter: blur(30px);
+}
+
+.Section-blob{
+    width: 100%;
+    position: fixed;
+    display:block;
+    justify-content:left;
+    align-items: center;
+    margin-top: 10rem;
+    min-height: 70vh;
+}
+
+.blob{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+}
+
+.blob:nth-child(2){
     filter: blur(30px);
 }
 
